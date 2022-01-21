@@ -1,17 +1,16 @@
 pipeline {
-
     agent any
 
     stages {
+        stage('git') {
+            steps {
+                git branch: 'main', credentialsId: 'github77', url: 'https://github.com/Akhilcholleti/devops-.git'
+        }
+        }
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh "mvn clean install"
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
         }
-    }
-}
+    
