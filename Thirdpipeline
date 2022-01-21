@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+               git branch: 'main', credentialsId: 'github77', url: 'https://github.com/Akhilcholleti/devops-.git'
+            }
+        }
+    }
+}
